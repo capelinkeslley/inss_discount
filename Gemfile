@@ -44,6 +44,8 @@ gem 'bootsnap', require: false
 
 gem 'bootstrap', '~> 4.6', '>= 4.6.0'
 
+gem 'devise'
+
 gem 'kaminari'
 
 gem 'rubocop'
