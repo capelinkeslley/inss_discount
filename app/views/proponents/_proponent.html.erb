@@ -1,0 +1,43 @@
+<div id="<%= dom_id proponent %>">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <strong>Nome:</strong>
+        <%= proponent.name %>
+      </div>
+      <div class="col-6">
+        <strong>CPF:</strong>
+        <%= proponent.document %>
+      </div>
+      <div class="col">
+        <strong>Data de nascimento:</strong>
+        <%= proponent.date_of_birth %>
+      </div>
+    </div>
+    <div class="row pt-2">
+      <div class="col">
+        <strong>Contato principal:</strong>
+        <%= proponent.main_contact %>
+      </div>
+      <div class="col-6">
+        <strong>Contato secundário:</strong>
+        <%= proponent.secondary_contact %>
+      </div>
+      <div class="col">
+        <strong>Salário bruto:</strong>
+        <%= proponent.gross_salary %>
+      </div>
+    </div>
+
+    <div class="row pt-2">
+      <div class="col">
+        <strong>Salário líquido:</strong>
+        <%= proponent.net_salary %>
+      </div>
+      <div class="col-6">
+        <strong>Desconto:</strong>
+        <%= proponent.discount %>
+      </div>
+    </div>
+  </div>
+</div>

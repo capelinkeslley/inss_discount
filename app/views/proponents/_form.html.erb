@@ -1,0 +1,49 @@
+<%= form_with(model: proponent) do |form| %>
+  <% if proponent.errors.any? %>
+    <div style="color: red">
+      <ul>
+        <% proponent.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :document, class: "form-label" %>
+    <%= form.text_field :document, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :date_of_birth, class: "form-label" %>
+    <%= form.date_field :date_of_birth, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :main_contact, class: "form-label" %>
+    <%= form.text_field :main_contact, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :secondary_contact, class: "form-label" %>
+    <%= form.text_field :secondary_contact, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :gross_salary, class: "form-label" %>
+    <%= form.text_field :gross_salary, class: "form-control" %>
+  </div>
+
+  <div class="pt-2 d-flex">
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <div class="pl-2">
+      <%= link_to "Back to proponents", proponents_path, class: 'btn btn-light' %>
+    </div>
+  </div>
+<% end %>

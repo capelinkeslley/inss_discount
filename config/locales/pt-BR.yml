@@ -1,0 +1,81 @@
+pt-BR:
+  activerecord:
+    attributes:
+      proponent:
+        name: Nome
+        document: CPF
+        date_of_birth: Data de nascimento
+        main_contact: Contato principal
+        secondary_contact: Outro contato
+        gross_salary: Salário bruto
+        net_salary: Salário líquido
+        discount: Desconto
+
+    errors:
+      messages:
+        record_invalid: "A validação falhou: %{errors}"
+        restrict_dependent_destroy:
+          has_one: Não é possível excluir o registro pois existe um %{record} dependente
+          has_many: Não é possível excluir o registro pois existem %{record} dependentes
+        
+    models:
+      proponent:
+        one: Proponente
+        other: Proponentes
+
+  activemodel:
+    attributes:
+      generic_api_error:
+        authorization: "Autorização"
+      crud_management/show: &default
+        instance: "Registro"
+      crud_management/index:
+        <<: *default
+      crud_management/update:
+        <<: *default
+      crud_management/destroy:
+        <<: *default
+      user_management/update:
+        type_user: "Função"
+      user_login:
+        user: Usuário
+        password: Senha
+      flow_triggers/triggered_params:
+        klass: Tipo do objeto
+    errors:
+      messages:
+        not_found: não encontrado
+        blank: não pode ficar em branco
+        unauthorized: Erro de login - não autorizado
+        invalid: Inválido
+        unverified: não verificado
+        verified: verificado
+        inclusion: não está incluído na lista
+
+  errors:
+    format: "%{attribute} %{message}"
+    not_authorized_title: "Login inválido"
+    cannot_activate_itself: "Não é possível alterar seu próprio status de ativação"
+    cannot_change_own_role: "Você não pode alterar sua própria função"
+    transaction_error: "Ocorreu um erro ao realizar a operação: %{message}"
+
+  confirmations:
+    reset_password: "Um e-mail para %{email} com as instruções de redefinição de senha foi enviado."
+    flows:
+      rescheduled_routine: Rotina reagendada
+      new_scheduled_routine: Nova rotina agendada
+
+  mailer:
+    welcome_reset_password_instructions:
+    reset_password_instructions:
+  devise:
+    failure:
+      locked: "A sua conta está bloqueada."
+      revoked_token: "Token expirado"
+      api_user:
+        unauthenticated: "Para continuar, efetue login ou registre-se"
+  enumerations:
+
+  devise:
+    sessions:
+      signed_in: Login realizado com sucesso.

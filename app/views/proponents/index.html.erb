@@ -1,0 +1,40 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="d-flex justify-content-between align-items-start">
+  <h1 class="align-self-start">Proponents</h1>
+  <%= link_to "New proponent", new_proponent_path, class: "btn btn-primary align-self-end" %>
+</div>
+
+
+<div id="proponents">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Salário Bruto</th>
+      <th scope="col">Salário Líquido</th>
+      <th scope="col">Desconto</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @proponents.each do |proponent| %>
+      <tr>
+        <th scope="row"><%= proponent.id %></th>
+        <td><%= proponent.name %></td>
+        <td><%= proponent.document %></td>
+        <td><%= proponent.gross_salary %></td>
+        <td><%= proponent.net_salary %></td>
+        <td><%= proponent.discount %></td>
+        <td> <%= link_to "Ver mais", proponent_path(proponent) %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @proponents %>
+</div>
+
+

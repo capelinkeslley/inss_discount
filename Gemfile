@@ -44,7 +44,11 @@ gem 'bootsnap', require: false
 
 gem 'bootstrap', '~> 4.6', '>= 4.6.0'
 
+gem 'cpf_cnpj'
+
 gem 'devise'
+
+gem 'rails-i18n'
 
 gem 'kaminari'
 
