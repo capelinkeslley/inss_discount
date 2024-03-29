@@ -16,7 +16,7 @@
 
   <div>
     <%= form.label :document, class: "form-label" %>
-    <%= form.text_field :document, class: "form-control" %>
+    <%= form.text_field :document, class: "form-control", type: 'number', length: 11, placeholder: '95124570095' %>
   </div>
 
   <div>
@@ -26,24 +26,41 @@
 
   <div>
     <%= form.label :main_contact, class: "form-label" %>
-    <%= form.text_field :main_contact, class: "form-control" %>
+    <%= form.text_field :main_contact, class: "form-control", type: 'number', placeholder: '5511988114488' %>
   </div>
 
   <div>
     <%= form.label :secondary_contact, class: "form-label" %>
-    <%= form.text_field :secondary_contact, class: "form-control" %>
+    <%= form.text_field :secondary_contact, class: "form-control", type: 'number', placeholder: '5511988114488' %>
   </div>
 
   <div>
     <%= form.label :gross_salary, class: "form-label" %>
-    <%= form.text_field :gross_salary, class: "form-control" %>
+    <%= form.text_field :gross_salary, class: "form-control", data: { controller: 'ajax', action: 'ajax#makeRequest' } %>
+  </div>
+
+  <div>
+    <%= form.label :discount, class: "form-label" %>
+    <%= form.text_field :discount, class: "form-control", disabled: true %>
   </div>
 
   <div class="pt-2 d-flex">
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary"><%= I18n.t('utils.create') %></button>
 
     <div class="pl-2">
-      <%= link_to "Back to proponents", proponents_path, class: 'btn btn-light' %>
+      <%= link_to I18n.t('utils.back'), proponents_path, class: 'btn btn-light' %>
     </div>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('Documento HTML completamente carregado');
+
+    $('.proponent_gross_salary').on('change', function() {
+      console.log('Valor do salário bruto alterado');
+      var gross_salary = $(this).val();
+      console.log('Valor do salário bruto:', gross_salary); 
+    });
+  });
+</script>

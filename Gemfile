@@ -58,6 +58,7 @@ gem 'rubocop-rails'
 
 gem 'sidekiq'
 
+gem 'view_component', '= 2.77'
 # Use Sass to process CSS
 # gem "sassc-rails"
 

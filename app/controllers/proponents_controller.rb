@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProponentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :calculate_discount
   before_action :set_proponent, only: %i[show edit update destroy]
 
   # GET /proponents or /proponents.json
@@ -58,6 +58,10 @@ class ProponentsController < ApplicationController
     end
   end
 
+  def calculate_discount
+    render json: { discount: !gross_salary.zero? ? ProponentServices::CalculateDiscount.perform(gross_salary:) : 0 }
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -69,5 +73,9 @@ class ProponentsController < ApplicationController
   def proponent_params
     params.require(:proponent).permit(:name, :document, :date_of_birth, :main_contact, :secondary_contact,
                                       :gross_salary, :net_salary, :discount)
+  end
+
+  def gross_salary
+    params[:gross_salary].to_f
   end
 end

@@ -124,23 +124,5 @@ RSpec.describe Proponent, type: :model do
         end
       end
     end
-
-    describe 'validates discount' do
-      context 'when the sum of net_salary and discount gives the same value as gross_salary' do
-        let(:instance) { build(:proponent, gross_salary: 3_000.0, net_salary: 2_700.0, discount: 300.0) }
-
-        it 'must return that it is valid' do
-          expect(instance).to be_valid
-        end
-      end
-
-      context 'when the sum of net_salary and discount does not give the same value as gross_salary' do
-        let(:instance) { build(:proponent, gross_salary: 3_000.0, net_salary: 2_700.0, discount: 300.5) }
-
-        it 'must return that it is invalid' do
-          expect(instance).not_to be_valid
-        end
-      end
-    end
   end
 end

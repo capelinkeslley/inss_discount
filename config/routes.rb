@@ -19,7 +19,13 @@ Rails.application.routes.draw do
     root 'proponents#index', as: :authenticated_root
   end
 
-  resources :proponents
+  resources :proponents do
+    collection do
+      post :calculate_discount
+    end
+  end
+
+  resources :users, only: :show
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

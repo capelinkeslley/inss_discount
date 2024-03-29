@@ -8,16 +8,29 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/chart.js' %>
-    <%= javascript_include_tag 'proponents_controller' %>
+    <%
+=begin%>
+ <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/chart.js' %> 
+<%
+=end%>
+    <%
+=begin%>
+ <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> 
+<%
+=end%>
+    <%
+=begin%>
+ <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" %> 
+<%
+=end%>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
-
-  <body class="d-flex align-items-center pt-5">
+  <body class="d-flex align-items-center pt-1">
     <div class="container">
+      <% if current_user.present? %>
+        <%= render NavbarComponent.new(user: current_user) %>
+      <% end %>
       <%= yield %>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

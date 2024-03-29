@@ -79,3 +79,11 @@ pt-BR:
   devise:
     sessions:
       signed_in: Login realizado com sucesso.
+  utils:
+    actions: Ações
+    view_more: Ver mais
+    back: Voltar
+    create: Criar
+
+  proponent:
+    new: Novo proponente

@@ -1,22 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
 <div class="d-flex justify-content-between align-items-start">
-  <h1 class="align-self-start">Proponents</h1>
-  <%= link_to "New proponent", new_proponent_path, class: "btn btn-primary align-self-end" %>
+  <h1 class="align-self-start"><%= I18n.t('activerecord.models.proponent.other') %></h1>
+  <%= link_to I18n.t('proponent.new'), new_proponent_path, class: "btn btn-primary align-self-end" %>
 </div>
 
 
-<div id="proponents">
+<div id="proponents" class="pt-5">
   <table class="table">
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Nome</th>
-      <th scope="col">CPF</th>
-      <th scope="col">Salário Bruto</th>
-      <th scope="col">Salário Líquido</th>
-      <th scope="col">Desconto</th>
-      <th scope="col">Ações</th>
+      <th scope="col"><%= I18n.t('activerecord.attributes.proponent.name') %></th>
+      <th scope="col"><%= I18n.t('activerecord.attributes.proponent.document') %></th>
+      <th scope="col"><%= I18n.t('activerecord.attributes.proponent.gross_salary') %></th>
+      <th scope="col"><%= I18n.t('activerecord.attributes.proponent.discount') %></th>
+      <th scope="col"><%= I18n.t('utils.actions') %></th>
     </tr>
   </thead>
   <tbody>
@@ -28,7 +27,7 @@
         <td><%= proponent.gross_salary %></td>
         <td><%= proponent.net_salary %></td>
         <td><%= proponent.discount %></td>
-        <td> <%= link_to "Ver mais", proponent_path(proponent) %> </td>
+        <td> <%= link_to I18n.t('utils.view_more'), proponent_path(proponent) %> </td>
       </tr>
     <% end %>
   </tbody>

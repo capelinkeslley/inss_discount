@@ -4,11 +4,10 @@ class Proponent < ApplicationRecord
   validates :name, :document, :date_of_birth, :main_contact, :gross_salary, presence: true
   validates :main_contact, numericality: { only_integer: true }, length: { in: 8..14 }
   validates :secondary_contact, numericality: { only_integer: true }, length: { in: 8..14 }, allow_blank: true
-  validates :document, uniqueness: true
+  validates :document, uniqueness: true, length: { is: 11 }
   validate :validate_document, if: :document
   validate :validate_date_of_birth, if: :date_of_birth
   validate :validate_net_salary, if: :net_salary
-  validate :validate_discount, if: :discount
 
   private
 
@@ -28,11 +27,5 @@ class Proponent < ApplicationRecord
     return if gross_salary > net_salary
 
     errors.add(:net_salary, :invalid)
-  end
-
-  def validate_discount
-    return if (discount + net_salary).eql?(gross_salary)
-
-    errors.add(:discount, :invalid)
   end
 end
