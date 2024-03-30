@@ -71,8 +71,10 @@ GEM
     ast (2.4.2)
     autoprefixer-rails (10.4.16.0)
       execjs (~> 2)
+    backport (1.2.0)
     base64 (0.2.0)
     bcrypt (3.1.20)
+    benchmark (0.3.0)
     bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
@@ -105,6 +107,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.1)
+    e2mmap (0.1.0)
     erubi (1.12.0)
     execjs (2.9.1)
     factory_bot (6.4.6)
@@ -127,6 +130,7 @@ GEM
     irb (1.12.0)
       rdoc
       reline (>= 0.4.2)
+    jaro_winkler (1.5.6)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -143,6 +147,10 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
+    kramdown (2.4.0)
+      rexml
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
     language_server-protocol (3.17.0.3)
     loofah (2.22.0)
       crass (~> 1.0.2)
@@ -219,6 +227,7 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.1.0)
+    rbs (2.8.4)
     rdoc (6.6.3.1)
       psych (>= 4.0.0)
     redis (4.8.1)
@@ -230,6 +239,8 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
+    reverse_markdown (2.1.1)
+      nokogiri
     rexml (3.2.6)
     rspec-core (3.13.0)
       rspec-support (~> 3.13.0)
@@ -288,6 +299,22 @@ GEM
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)
       redis-client (>= 0.19.0)
+    solargraph (0.50.0)
+      backport (~> 1.2)
+      benchmark
+      bundler (~> 2.0)
+      diff-lcs (~> 1.4)
+      e2mmap
+      jaro_winkler (~> 1.5)
+      kramdown (~> 2.3)
+      kramdown-parser-gfm (~> 1.1)
+      parser (~> 3.0)
+      rbs (~> 2.0)
+      reverse_markdown (~> 2.0)
+      rubocop (~> 1.38)
+      thor (~> 1.0)
+      tilt (~> 2.0)
+      yard (~> 0.9, >= 0.9.24)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -325,6 +352,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    yard (0.9.36)
     zeitwerk (2.6.13)
 
 PLATFORMS
@@ -353,6 +381,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers (~> 5.0)
   sidekiq
+  solargraph
   sprockets-rails
   stimulus-rails
   turbo-rails

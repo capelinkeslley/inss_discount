@@ -8,7 +8,6 @@ pt-BR:
         main_contact: Contato principal
         secondary_contact: Outro contato
         gross_salary: Salário bruto
-        net_salary: Salário líquido
         discount: Desconto
 
     errors:
@@ -83,7 +82,7 @@ pt-BR:
     actions: Ações
     view_more: Ver mais
     back: Voltar
-    create: Criar
+    submit: Enviar
 
   proponent:
     new: Novo proponente

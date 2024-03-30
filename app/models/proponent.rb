@@ -7,7 +7,6 @@ class Proponent < ApplicationRecord
   validates :document, uniqueness: true, length: { is: 11 }
   validate :validate_document, if: :document
   validate :validate_date_of_birth, if: :date_of_birth
-  validate :validate_net_salary, if: :net_salary
 
   private
 
@@ -21,11 +20,5 @@ class Proponent < ApplicationRecord
     return if date_of_birth.to_date <= 18.years.ago.to_date
 
     errors.add(:date_of_birth, :invalid)
-  end
-
-  def validate_net_salary
-    return if gross_salary > net_salary
-
-    errors.add(:net_salary, :invalid)
   end
 end

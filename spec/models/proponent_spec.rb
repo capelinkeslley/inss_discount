@@ -106,23 +106,5 @@ RSpec.describe Proponent, type: :model do
         end
       end
     end
-
-    describe 'validates net_salary' do
-      context 'when net_salary is less than gross_salary' do
-        let(:instance) { build(:proponent, gross_salary: 3_000.0, net_salary: 2_700.0, discount: 300.0) }
-
-        it 'must return that it is valid' do
-          expect(instance).to be_valid
-        end
-      end
-
-      context 'when net_salary is greater than gross_salary' do
-        let(:instance) { build(:proponent, gross_salary: 2_700, net_salary: 3_000.0, discount: 300.0) }
-
-        it 'must return that it is invalid' do
-          expect(instance).not_to be_valid
-        end
-      end
-    end
   end
 end

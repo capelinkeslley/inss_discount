@@ -112,19 +112,18 @@ RSpec.describe ProponentsController, type: :request do
         expect(response).to have_http_status(:found)
       end
 
-      it 'updates the requested proponent' do
-        patch proponent_url(proponent), params: { proponent: new_attributes }
-        proponent.reload
-
-        expect(proponent.name).to eq('updated name')
-      end
-
       it 'redirects to the proponent' do
         patch proponent_url(proponent), params: { proponent: new_attributes }
 
         proponent.reload
 
         expect(response).to redirect_to(proponent_url(proponent))
+      end
+
+      it 'have enqueud UpdateProponentJob' do
+        expect do
+          patch proponent_url(proponent), params: { proponent: new_attributes }
+        end.to have_enqueued_job(UpdateProponentJob).exactly(:once)
       end
     end
 
@@ -133,6 +132,12 @@ RSpec.describe ProponentsController, type: :request do
         patch proponent_url(proponent), params: { proponent: invalid_attributes }
 
         expect(response).to have_http_status(:unprocessable_entity)
+      end
+
+      it 'not have enqueud UpdateProponentJob' do
+        expect do
+          patch proponent_url(proponent), params: { proponent: invalid_attributes }
+        end.not_to have_enqueued_job(UpdateProponentJob).exactly(:once)
       end
     end
 

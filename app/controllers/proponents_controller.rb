@@ -37,15 +37,25 @@ class ProponentsController < ApplicationController
 
   # PATCH/PUT /proponents/1 or /proponents/1.json
   def update
-    respond_to do |format|
-      if @proponent.update(proponent_params)
-        format.html { redirect_to proponent_url(@proponent), notice: 'Proponent was successfully updated.' }
+    success_callback = lambda do |_|
+      respond_to do |format|
+        format.html { redirect_to proponent_url(@proponent), notice: 'Enviado para atualização' }
         format.json { render :show, status: :ok, location: @proponent }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @proponent.errors, status: :unprocessable_entity }
       end
     end
+
+    error_callback = lambda do |caller|
+      respond_to do |format|
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: caller.errors, status: :unprocessable_entity }
+      end
+    end
+
+    ProponentServices::Update.perform(
+      proponent_params,
+      @proponent,
+      { success: success_callback, error: error_callback }
+    )
   end
 
   # DELETE /proponents/1 or /proponents/1.json
@@ -72,7 +82,7 @@ class ProponentsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def proponent_params
     params.require(:proponent).permit(:name, :document, :date_of_birth, :main_contact, :secondary_contact,
-                                      :gross_salary, :net_salary, :discount)
+                                      :gross_salary, :discount)
   end
 
   def gross_salary

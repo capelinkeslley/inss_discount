@@ -24,9 +24,8 @@
         <th scope="row"><%= proponent.id %></th>
         <td><%= proponent.name %></td>
         <td><%= proponent.document %></td>
-        <td><%= proponent.gross_salary %></td>
-        <td><%= proponent.net_salary %></td>
-        <td><%= proponent.discount %></td>
+        <td><%= number_to_currency(proponent.gross_salary, unit: 'R$', separator: ',', delimiter: '.', format: '%u %n') %></td>
+        <td> <%= number_to_currency(proponent.discount, unit: 'R$', separator: ',', delimiter: '.', format: '%u %n') %></td>
         <td> <%= link_to I18n.t('utils.view_more'), proponent_path(proponent) %> </td>
       </tr>
     <% end %>

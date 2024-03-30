@@ -8,7 +8,6 @@ FactoryBot.define do
     main_contact { Faker::PhoneNumber.cell_phone_in_e164 }
     secondary_contact { Faker::PhoneNumber.cell_phone_in_e164 }
     gross_salary { 3_000.00 }
-    net_salary { 2_718.38 }
     discount { 281.62 }
   end
 end
