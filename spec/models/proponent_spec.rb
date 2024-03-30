@@ -3,6 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe Proponent, type: :model do
+  describe 'associations' do
+    it { should have_one(:address) }
+  end
+
   describe 'validations' do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:document) }

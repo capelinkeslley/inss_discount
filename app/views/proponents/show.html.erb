@@ -4,6 +4,15 @@
 
 <div class='pt-5'>
   <%= render @proponent %>
+
+  <div class="pt-5">
+    <% if @proponent.address.present? %>
+      <h3>Endreço</h3>
+      <div class="pt-2">
+        <%= render @proponent.address %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <div class="row pt-5">

@@ -8,6 +8,10 @@ class Proponent < ApplicationRecord
   validate :validate_document, if: :document
   validate :validate_date_of_birth, if: :date_of_birth
 
+  has_one :address, dependent: :destroy
+
+  accepts_nested_attributes_for :address
+
   private
 
   def validate_document

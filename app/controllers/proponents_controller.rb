@@ -15,6 +15,7 @@ class ProponentsController < ApplicationController
   # GET /proponents/new
   def new
     @proponent = Proponent.new
+    @proponent.build_address
   end
 
   # GET /proponents/1/edit
@@ -82,7 +83,11 @@ class ProponentsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def proponent_params
     params.require(:proponent).permit(:name, :document, :date_of_birth, :main_contact, :secondary_contact,
-                                      :gross_salary, :discount)
+                                      :gross_salary, :discount, address_params)
+  end
+
+  def address_params
+    { address_attributes: %i[id street number neighborhood city state zip_code] }
   end
 
   def gross_salary

@@ -9,6 +9,13 @@ pt-BR:
         secondary_contact: Outro contato
         gross_salary: Salário bruto
         discount: Desconto
+      address:
+        street: Rua/Avenida
+        number: Número
+        neighborhood: Bairro
+        city: Cidade
+        state: Estado
+        zip_code: CEP
 
     errors:
       messages:
@@ -21,6 +28,9 @@ pt-BR:
       proponent:
         one: Proponente
         other: Proponentes
+      address:
+        one: Endereço
+        other: Endereços
 
   activemodel:
     attributes:
@@ -86,3 +96,5 @@ pt-BR:
 
   proponent:
     new: Novo proponente
+  address:
+    new: Dados do endereço

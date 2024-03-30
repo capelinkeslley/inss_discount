@@ -44,6 +44,42 @@
     <%= form.text_field :discount, class: "form-control", readonly: true %>
   </div>
 
+  <div class="pt-5">
+    <h2><%= I18n.t('address.new') %></h2>
+
+    <%= form.fields_for :address do |address_form| %>
+       <div>
+          <%= address_form.label :street, class: "form-label" %>
+          <%= address_form.text_field :street, class: "form-control" %>
+        </div>
+
+        <div>
+          <%= address_form.label :number, class: "form-label" %>
+          <%= address_form.text_field :number, class: "form-control" %>
+        </div>
+
+         <div>
+          <%= address_form.label :neighborhood, class: "form-label" %>
+          <%= address_form.text_field :neighborhood, class: "form-control" %>
+        </div>
+
+        <div>
+          <%= address_form.label :city, class: "form-label" %>
+          <%= address_form.text_field :city, class: "form-control" %>
+        </div>
+
+        <div>
+          <%= address_form.label :state, class: "form-label" %>
+          <%= address_form.text_field :state, class: "form-control" %>
+        </div>
+
+        <div>
+          <%= address_form.label :zip_code, class: "form-label" %>
+          <%= address_form.text_field :zip_code, class: "form-control" %>
+        </div>
+    <% end %>
+  </div>
+
   <div class="pt-2 d-flex">
     <button type="submit" class="btn btn-primary"><%= I18n.t('utils.submit') %></button>
 
