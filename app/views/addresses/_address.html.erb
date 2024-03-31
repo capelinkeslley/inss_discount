@@ -1,0 +1,32 @@
+<div id="<%= dom_id address %>">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <strong> <%= I18n.t('activerecord.attributes.address.street') %>:</strong>
+        <%= address.street %>
+      </div>
+      <div class="col-6">
+        <strong><%= I18n.t('activerecord.attributes.address.number') %>:</strong>
+        <%= address.number %>
+      </div>
+      <div class="col">
+        <strong><%= I18n.t('activerecord.attributes.address.neighborhood') %></strong>
+        <%= address.neighborhood %>
+      </div>
+    </div>
+    <div class="row pt-2">
+      <div class="col">
+        <strong><%= I18n.t('activerecord.attributes.address.city') %>:</strong>
+        <%= address.city %>
+      </div>
+      <div class="col-6">
+        <strong><%= I18n.t('activerecord.attributes.address.state') %>:</strong>
+        <%= address.state %>
+      </div>
+      <div class="col">
+        <strong><%= I18n.t('activerecord.attributes.address.zip_code') %>:</strong>
+        <%= address.zip_code %>
+      </div>
+    </div>
+  </div>
+</div>

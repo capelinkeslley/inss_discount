@@ -1,0 +1,46 @@
+version: '3'
+services:
+  web:
+    depends_on:
+      - postgres
+      - redis
+    env_file: .env.production
+    build:
+      context: .
+    volumes:
+      - .:/app
+      - project_gems:/usr/local/bundle
+    ports:
+      - "3000:3000"
+
+  postgres:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis
+    command: redis-server
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+  sidekiq:
+    depends_on:
+      - postgres
+      - redis
+      - web
+    environment:
+      - LOCAL=docker
+    build: .
+    command: bash -c "bundle install && bundle exec sidekiq"
+    volumes:
+      - .:/api
+volumes:
+  postgres_data:
+  redis_data:
+  project_gems:

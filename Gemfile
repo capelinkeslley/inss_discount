@@ -48,6 +48,8 @@ gem 'cpf_cnpj'
 
 gem 'devise'
 
+gem 'dotenv', groups: [:development, :test]
+
 gem 'rails-i18n'
 
 gem 'kaminari'
