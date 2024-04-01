@@ -1,24 +1,36 @@
-# README
+## INNS Discount
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+INNS Discount is a small application used to calculate INSS (Brazilian Social Security Contribution) discount based on a salary.
 
-Things you may want to cover:
+The application has two models, user and proponent. To log in, you can use the following credentials: email: first_user@email.com, password: 123123. After logging in, you can create new proponents, update them, delete them, and view reports.
 
-* Ruby version
+To create a new account, you need to provide a name, email (a valid email to confirm it after registration; without confirmation, login is not possible), password, and password confirmation. After receiving the confirmation email, you can log in.
 
-* System dependencies
+### Setup:
 
-* Configuration
+To run the application, you need to configure the development environment. Execute the following command in the terminal:
 
-* Database creation
+EDITOR="vi" rails credentials:edit --environment development
 
-* Database initialization
+Add the following to development.yml:
 
-* How to run the test suite
+```yaml
+mailer:
+  username: your_username
+  password: your_password
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+You also need to configure the database information. To do this, create a .env.development file; you can find an example in .env.development.example.
 
-* Deployment instructions
+Redis must be running to use Sidekiq.
 
-* ...
+After everything is set up:
+
+```rails db:create && rails db:migrate && rails db:seed && rails s```
+
+You can also use Docker:
+
+```docker compose build
+
+docker compose up -d
+```
