@@ -33,24 +33,6 @@ pt-BR:
         other: Endereços
 
   activemodel:
-    attributes:
-      generic_api_error:
-        authorization: "Autorização"
-      crud_management/show: &default
-        instance: "Registro"
-      crud_management/index:
-        <<: *default
-      crud_management/update:
-        <<: *default
-      crud_management/destroy:
-        <<: *default
-      user_management/update:
-        type_user: "Função"
-      user_login:
-        user: Usuário
-        password: Senha
-      flow_triggers/triggered_params:
-        klass: Tipo do objeto
     errors:
       messages:
         not_found: não encontrado
@@ -92,9 +74,15 @@ pt-BR:
     actions: Ações
     view_more: Ver mais
     back: Voltar
+    update: Atualizar
     submit: Enviar
+    gross_salary: Salário bruto
+    name: Nome
+    no_proposer: Nenhum proponente nessa faixa salárial
 
   proponent:
     new: Novo proponente
+    destroy: Remover proponente
   address:
     new: Dados do endereço
+  report: Relatório

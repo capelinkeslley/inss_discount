@@ -1,13 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Proponente</h1>
+<h1><%= I18n.t('activerecord.models.proponent.one') %></h1>
 
 <div class='pt-5'>
   <%= render @proponent %>
 
   <div class="pt-5">
     <% if @proponent.address.present? %>
-      <h3>Endreço</h3>
+      <h3><%= I18n.t('activerecord.models.address.one') %></h3>
       <div class="pt-2">
         <%= render @proponent.address %>
       </div>
@@ -17,9 +17,9 @@
 
 <div class="row pt-5">
   <div class="col-4 d-flex justify-content-between">
-    <%= link_to "Atualizar", edit_proponent_path(@proponent), class: 'btn btn-primary' %>
-    <%= link_to "Voltar", proponents_path, class: 'btn btn-light' %>
-    <%= button_to "Destroy this proponent", @proponent, method: :delete, class: 'btn btn-danger' %>
+    <%= link_to I18n.t('utils.update'), edit_proponent_path(@proponent), class: 'btn btn-primary' %>
+    <%= link_to I18n.t('utils.back'), :back, class: 'btn btn-light' %>
+    <%= button_to I18n.t('proponent.destroy'), @proponent, method: :delete, class: 'btn btn-danger' %>
   </div>
 </div>
 

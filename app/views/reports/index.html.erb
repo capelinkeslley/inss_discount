@@ -1,0 +1,28 @@
+<h1><%= I18n.t('report') %></h1>
+
+<div class="pt-5">
+  <%= render ProponentReportComponent.new(title: 'Salário até R$1045,00', salary_range: @first_salary_range) %>
+</div>
+
+<div class="pt-5">
+  <%= render ProponentReportComponent.new(title: 'Salário de R$1045,01 até R$2089,60', salary_range: @second_salary_range) %>
+</div>
+
+<div class="pt-5">
+  <%= render ProponentReportComponent.new(title: 'Salário de R$2089,61 até R$3134,40', salary_range: @third_salary_range) %>
+</div>
+
+<div class="pt-5">
+  <%= render ProponentReportComponent.new(title: 'Salário de R$3134,41 até R$6101,06', salary_range: @fourth_salary_range) %>
+</div>
+
+<div class="pt-5">
+
+  <h3>Gráfico da relação salário e funcionários:</h3>
+
+  <div class="pt-5">
+    <div data-controller="barchart" class="">
+      <canvas id="bar-chart" data-barchart-target="myChart" data-value="<%= @chart_data %>" width="800" height="450"></canvas>
+    </div>
+  </div>
+</div>

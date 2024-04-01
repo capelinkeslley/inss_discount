@@ -2,36 +2,36 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <strong>Nome:</strong>
+        <strong><%= I18n.t('activerecord.attributes.proponent.name') %></strong>
         <%= proponent.name %>
       </div>
       <div class="col-6">
-        <strong>CPF:</strong>
+        <strong><%= I18n.t('activerecord.attributes.proponent.document') %>:</strong>
         <%= proponent.document %>
       </div>
       <div class="col">
-        <strong>Data de nascimento:</strong>
-        <%= proponent.date_of_birth %>
+        <strong><%= I18n.t('activerecord.attributes.proponent.date_of_birth') %>:</strong>
+        <%= proponent.date_of_birth.strftime('%d/%m/%Y') %>
       </div>
     </div>
     <div class="row pt-2">
       <div class="col">
-        <strong>Contato principal:</strong>
+        <strong><%= I18n.t('activerecord.attributes.proponent.main_contact') %>:</strong>
         <%= proponent.main_contact %>
       </div>
       <div class="col-6">
-        <strong>Contato secundário:</strong>
+        <strong><%= I18n.t('activerecord.attributes.proponent.secondary_contact') %>:</strong>
         <%= proponent.secondary_contact %>
       </div>
       <div class="col">
-        <strong>Salário bruto:</strong>
+        <strong><%= I18n.t('activerecord.attributes.proponent.gross_salary') %>:</strong>
          <%= number_to_currency(proponent.gross_salary, unit: 'R$', separator: ',', delimiter: '.', format: '%u %n') %>
       </div>
     </div>
 
     <div class="row pt-2">
       <div class="col-6">
-        <strong>Desconto:</strong>
+        <strong><%= I18n.t('activerecord.attributes.proponent.discount') %>:</strong>
         <%= number_to_currency(proponent.discount, unit: 'R$', separator: ',', delimiter: '.', format: '%u %n') %>
       </div>
     </div>

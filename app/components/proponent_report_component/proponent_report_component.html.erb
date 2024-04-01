@@ -1,0 +1,25 @@
+<div>
+  <h5><%= @title %></h5>
+  <% if @salary_range.exists? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"><%= I18n.t('utils.name') %></th>
+          <th scope="col"><%= I18n.t('utils.gross_salary') %></th>
+          <th scope="col"><%= I18n.t('utils.actions') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @salary_range.each do |proponent| %>
+          <tr>
+            <td scope="row"><%= proponent.name %></td>
+            <td><%= number_to_currency(proponent.gross_salary, unit: 'R$', separator: ',', delimiter: '.', format: '%u %n') %></td>
+            <td> <%= link_to I18n.t('utils.view_more'), proponent_path(proponent) %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% else %>
+    <p><%= I18n.t('utils.no_proposer') %></p>
+    <% end %>
+</div>

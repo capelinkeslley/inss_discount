@@ -44,6 +44,8 @@ gem 'bootsnap', require: false
 
 gem 'bootstrap', '~> 4.6', '>= 4.6.0'
 
+gem 'chart-js-rails'
+
 gem 'cpf_cnpj'
 
 gem 'devise'
