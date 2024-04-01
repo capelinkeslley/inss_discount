@@ -40,6 +40,11 @@ services:
     command: bash -c "bundle install && bundle exec sidekiq"
     volumes:
       - .:/api
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - "1080:1080"
+      - "1025:1025"
 volumes:
   postgres_data:
   redis_data:
