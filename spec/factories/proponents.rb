@@ -9,5 +9,9 @@ FactoryBot.define do
     secondary_contact { Faker::PhoneNumber.cell_phone_in_e164 }
     gross_salary { 3_000.00 }
     discount { 281.62 }
+
+    after(:build) do |proponent|
+      proponent.address = FactoryBot.build(:address)
+    end
   end
 end
