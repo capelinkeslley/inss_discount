@@ -30,7 +30,8 @@ After everything is set up:
 
 You can also use Docker:
 
-```docker compose build
+```
+docker compose build
 
 docker compose up -d
 ```
